@@ -2,30 +2,33 @@ use anchor_lang::prelude::*;
 
 #[error_code]
 pub enum FundraiserError {
-    #[msg("Campaign title too long (max 50 characters)")]
+    #[msg("Title is too long (max 100 characters)")]
     TitleTooLong,
-    #[msg("Campaign description too long (max 200 characters)")]
+
+    #[msg("Description is too long (max 500 characters)")]
     DescriptionTooLong,
-    #[msg("Target amount must be greater than 0")]
-    InvalidTargetAmount,
-    #[msg("Campaign duration must be beteen 1 and 365 days")]
-    InvalidDuration,
-    #[msg("Campaign has ended")]
-    CampaignEnded,
-    #[msg("Campaign is paused")]
-    CampaignPaused,
-    #[msg("Only campaign creator can perform this action")]
-    UnauthorizedAccess,
-    #[msg("Target amount not reached yet")]
-    TargetNotReached,
-    #[msg("Insufficient funds in campaign")]
-    InsufficientFunds,
-    #[msg("Cannot delete campaign with funds")]
-    CannotDeleteWithFunds,
-    #[msg("Campaign is not paused")]
-    CannotDeletWithFunds,
-    #[msg("Donation amount too small")]
+
+    #[msg("Image URL is too long (max 200 characters)")]
+    ImageUrlTooLong,
+
+    #[msg("Goal amount must be greater than 0")]
+    InvalidGoalAmount,
+
+    #[msg("Only the campaign creator can do this")]
+    NotCampaignCreator,
+
+    #[msg("Donation amount is too small (minimum 0.001 SOL)")]
     DonationTooSmall,
+
+    #[msg("Not enough funds in the campaign")]
+    InsufficientFunds,
+
+    #[msg("Cannot delete campaign that has received donations")]
+    CannotDeleteWithDonations,
+
+    #[msg("Campaign is inactive")]
+    CampaignInactive,
+
+    #[msg("Amount must be greater than 0")]
+    InvalidAmount,
 }
-
-

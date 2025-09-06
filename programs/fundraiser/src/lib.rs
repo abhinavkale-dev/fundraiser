@@ -15,35 +15,27 @@ declare_id!("2qYrfRPXKsk12Qn8uJkSvtfiMnhjFHJZMEmmQ2DDbffS");
 pub mod fundraiser {
     use super::*;
 
-    pub fn create_campaign(ctx: Context<CreateCampaign>) -> Result<()> {
+    pub fn create_campaign(ctx: Context<CreateCampaign>, title: String, description: String, image_url: String, goal_amount: u64) -> Result<()> {
         Ok(())
     }
 
-    pub fn donate(ctx: Context<Donate>) -> Result<()> {
+    pub fn donate(ctx: Context<Donate>, amount: u64) -> Result<()> {
         Ok(())
     }
 
-    pub fn withdraw(ctx: Context<Withdraw>) -> Result<()> {
+    pub fn withdraw_all(ctx: Context<Withdraw>) -> Result<()> {
         Ok(())
     }
 
-    pub fn withdraw_partial(ctx: Context<WithdrawPartial>) -> Result<()> {
+    pub fn withdraw_partial(ctx: Context<WithdrawPartial>, amount: u64) -> Result<()> {
         Ok(())
     }
 
-    pub fn update_campaign(ctx: Context<UpdateCampaign>) -> Result<()> {
+    pub fn update_campaign(ctx: Context<UpdateCampaign>, new_title: String, new_description: String, new_image_url: String, new_goal_amount: u64) -> Result<()> {
         Ok(())
     }
 
     pub fn delete_campaign(ctx: Context<DeleteCampaign>) -> Result<()> {
-        Ok(())
-    }
-
-    pub fn pause_campaign(ctx: Context<PauseCampaign>) -> Result<()> {
-        Ok(())
-    }
-
-    pub fn resume_campaign(ctx: Context<ResumeCampaign>) -> Result<()> {
         Ok(())
     }
 }

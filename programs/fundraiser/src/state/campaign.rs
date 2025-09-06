@@ -8,7 +8,7 @@ pub struct Campaign {
     pub image_url: String,
     pub goal_amount: u64,
     pub current_amount: u64,
-    pub total_donorss: u32,
+    pub total_donors: u32,
     pub total_donations: u32,
     pub toal_withdrawals: u32,
     pub total_withdrawn: u64,

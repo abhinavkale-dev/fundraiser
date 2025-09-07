@@ -36,6 +36,6 @@ pub mod fundraiser {
     }
 
     pub fn delete_campaign(ctx: Context<DeleteCampaign>) -> Result<()> {
-        Ok(()
+        Ok(())
     }
 }

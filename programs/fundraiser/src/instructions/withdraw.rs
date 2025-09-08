@@ -25,7 +25,7 @@ pub struct Withdraw<'info> {
         seeds = [
             b"withdrawal_record",
             campaign.key().as_ref(),
-            &(campaign.toal_withdrawals + 1).to_le_bytes(),
+            &(campaign.total_withdrawals + 1).to_le_bytes(),
         ],
         bump
     )]

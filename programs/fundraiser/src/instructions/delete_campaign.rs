@@ -10,26 +10,28 @@ pub struct DeleteCampaign<'info> {
         mut,
         seeds = [
             b"campaign",
-            campaign.creator.as_ref(),
-            campaign.title.as_bytes(),
+            campaign_account.creator.as_ref(),
+            campaign_account.title.as_bytes(),
         ],
-        bump = campaign.bump,
+        bump = campaign_account.bump,
         has_one = creator @ FundraiserError::NotCampaignCreator,
         close = creator,
     )]
-    pub campaign: Account<'info, Campaign>,
+    pub campaign_account: Account<'info, Campaign>,
 }
 
 impl DeleteCampaign<'_> {
     pub fn handler(
         ctx: Context<DeleteCampaign>,
     ) -> Result<()> {
+        let campaign = &ctx.accounts.campaign_account;
+
         require!(
-            campaign.current_amount == 0 
+            campaign.current_amount == 0
             && campaign.total_donations == 0
-            && campaign.total_donors == 0, 
+            && campaign.total_donors == 0,
             FundraiserError::CannotDeleteWithDonations);
-        
+
         msg!("Campaign deleted: {}", campaign.title);
         Ok(())
     }

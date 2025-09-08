@@ -10,7 +10,7 @@ pub struct Campaign {
     pub current_amount: u64,
     pub total_donors: u32,
     pub total_donations: u32,
-    pub toal_withdrawals: u32,
+    pub total_withdrawals: u32,
     pub total_withdrawn: u64,
     pub is_active: bool,
     pub bump: u8,

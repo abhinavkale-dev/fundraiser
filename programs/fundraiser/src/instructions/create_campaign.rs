@@ -48,7 +48,7 @@ impl CreateCampaign<'_> {
         campaign.current_amount = 0;
         campaign.total_donors = 0;
         campaign.total_donations = 0;
-        campaign.toal_withdrawals = 0;
+        campaign.total_withdrawals = 0;
         campaign.total_withdrawn = 0;
         campaign.is_active = true;
         campaign.bump = ctx.bumps.campaign;

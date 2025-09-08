@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
-use  crate::{state::*, error::*};
+use anchor_lang::system_program::{transfer, Transfer};
+use crate::{state::*, error::*};
 
 const MIN_DONATION: u64 = 1_000_000;
 
@@ -60,11 +61,10 @@ impl Donate<'_> {
         let program = ctx.accounts.system_program.to_account_info();
         let accounts = Transfer {
             from: ctx.accounts.donor.to_account_info(),
-            to: ctx.accounts.campaign.to_account_info(),
-            authority: ctx.accounts.donor.to_account_info(),
+            to: campaign.to_account_info(),
         };
 
-        system_program::transfer(
+        transfer(
             CpiContext::new(program, accounts),
             amount,
         )?;
